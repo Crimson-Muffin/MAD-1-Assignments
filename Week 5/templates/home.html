@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block body %}
+<h1>Students List</h1>
+{% if len == 0 %}
+<p>No Students Found. Add the student now!</p>
+{% else %}
+<table id="all-students">
+  <tr>
+    <th>SNo</th>
+    <th>Roll Number</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Actions</th>
+  </tr>
+  {% for student in students %}
+  <tr>
+    <td>s_no_1</td>
+    <td>
+      <a href="/student/{{ student.student_id }}">{{student.roll_number}}</a>
+    </td>
+    <td>first_name_1</td>
+    <td>last_name_1</td>
+    <td>
+      <a href="/student/{{ student.student_id }}/update" type="button"
+        >Update</a
+      >
+      <a href="/student/{{ student.student_id }}/delete" type="button"
+        >Delete</a
+      >
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+<a href="/student/create" type="button">+Add Student</a>
+
+{% endblock %}
